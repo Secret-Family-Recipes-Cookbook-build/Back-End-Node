@@ -10,7 +10,11 @@
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku main",
+    "migrateh": "heroku run knex migrate:latest -a secret-recipes-build",
+    "rollbackh": "heroku run knex migrate:rollback -a secret-recipes-build",
+    "databaseh": "heroku pg:psql -a secret-recipes-build",
+    "seedh": "heroku run knex seed:run -a secret-recipes-build"
   },
   "engines": {
     "node": "14.16.0",
